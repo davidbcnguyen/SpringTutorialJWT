@@ -1,8 +1,11 @@
 package com.example.springtutorialjwt;
 
 import java.security.Principal;
+import java.util.List;
+import java.util.stream.Collectors;
 
 import org.modelmapper.ModelMapper;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,8 +27,14 @@ public class MessageController {
         return convertToDto(createdMessage);
     }
 
+    @GetMapping
+    public List<MessageDto> getMessages() {
+        return messageService.getAll().stream().map(this::convertToDto).collect(Collectors.toList());
+    }
+
     private MessageDto convertToDto(Message message) {
         MessageDto messageDto = modelMapper.map(message, MessageDto.class);
+        messageDto.setUsername(message.getUser().getUsername());
         return messageDto;
     }
 }
