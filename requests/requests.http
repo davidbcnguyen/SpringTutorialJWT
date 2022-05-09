@@ -18,4 +18,12 @@ Content-Type: application/json
 
 ###
 GET http://localhost:8080/api/user HTTP/1.1
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJkYXZpZG5ndXllbiIsImV4cCI6MTY1MjkzNzU2MH0.ZmpIpdOvzxgUjh-WnnVI93VCJXMaxmK2BkYv2HZqlgX1SuYkriwwOjDIFh-Jmlb4gRwWDUphwCq_5Rp87Q-IXQ 
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJkYXZpZG5ndXllbiIsImV4cCI6MTY1MzAwMTg4Nn0.JYOi8CElEQfOX9W0d_vV2xEnv0aLt0k2BfRg2L5o1VOoZ2XfKCVf88GZ27p8tNenTgNhi6LgjtD9uSlKhgW3lQ
+###
+POST http://localhost:8080/api/message HTTP/1.1
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJkYXZpZG5ndXllbiIsImV4cCI6MTY1MzAwMTg4Nn0.JYOi8CElEQfOX9W0d_vV2xEnv0aLt0k2BfRg2L5o1VOoZ2XfKCVf88GZ27p8tNenTgNhi6LgjtD9uSlKhgW3lQ
+Content-Type: application/json
+
+{
+    "body": "Hello, World!"
+}

@@ -20,7 +20,7 @@ public class UserService {
         return userRepository.findByUsername(username).orElseThrow(EntityNotFoundException::new);
     }
 
-    public void createUser(UserCreateRequest userCreateRequest) {
+    public ApiUser createUser(UserCreateRequest userCreateRequest) {
         ApiUser user = new ApiUser();
         Optional<ApiUser> byUsername = userRepository.findByUsername(userCreateRequest.getUsername());
         if (byUsername.isPresent()) {
@@ -29,6 +29,7 @@ public class UserService {
         user.setUsername(userCreateRequest.getUsername());
         user.setPassword(passwordEncoder.encode(userCreateRequest.getPassword()));
         userRepository.save(user);
+        return user;
     }
 
     public List<ApiUser> getAll() {
