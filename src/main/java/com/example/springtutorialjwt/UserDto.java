@@ -10,5 +10,5 @@ import lombok.Setter;
 public class UserDto {
     private Long id;
     private String username;
-    private List<MessageDto> message;
+    private List<MessageDto> messages;
 }

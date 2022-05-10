@@ -27,3 +27,22 @@ Content-Type: application/json
 {
     "body": "Hello, World!"
 }
+###
+POST http://localhost:8080/api/user/follow HTTP/1.1
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJkYXZpZG5ndXllbiIsImV4cCI6MTY1MzAwNjM3OH0.0axT5Su3Z4MTI5gR1KMlRDiCik8qzaaeQSW39kL3T5e13YEWccwk4lASa_gEVIEiYDUxWhJVl-JY0QXW15WbWQ
+Content-Type: application/json
+
+{
+    "followee_username": "davidnguyen2"
+}
+###
+POST http://localhost:8080/api/message HTTP/1.1
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJkYXZpZG5ndXllbjIiLCJleHAiOjE2NTMwMTUxNDN9.x3hXwlqp6CPRzCQVnO8r10HyEIn_fUb0ltFdm2b4cAroOWLkFJ7uLiIA4y1fmV8IvcntYPfvq7FshemFh1ncjQ
+Content-Type: application/json
+
+{
+    "body": "I am David 2 for reals pt 2!"
+}
+###
+GET http://localhost:8080/api/message/feed HTTP/1.1
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJkYXZpZG5ndXllbiIsImV4cCI6MTY1MzAwNjM3OH0.0axT5Su3Z4MTI5gR1KMlRDiCik8qzaaeQSW39kL3T5e13YEWccwk4lASa_gEVIEiYDUxWhJVl-JY0QXW15WbWQ

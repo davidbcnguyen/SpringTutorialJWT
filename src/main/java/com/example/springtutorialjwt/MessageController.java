@@ -32,6 +32,12 @@ public class MessageController {
         return messageService.getAll().stream().map(this::convertToDto).collect(Collectors.toList());
     }
 
+    @GetMapping(path = "/feed")
+    public List<MessageDto> getFeed(Principal principal) {
+        String username = principal.getName();
+        return messageService.getFeed(username).stream().map(this::convertToDto).collect(Collectors.toList());
+    }
+
     private MessageDto convertToDto(Message message) {
         MessageDto messageDto = modelMapper.map(message, MessageDto.class);
         messageDto.setUsername(message.getUser().getUsername());

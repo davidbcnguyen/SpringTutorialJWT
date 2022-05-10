@@ -25,6 +25,10 @@ public class MessageService {
         return message;
     }
 
+    public List<Message> getFeed(String username) {
+        return messageRepository.getFollowingMessages(username);
+    }
+
     public List<Message> getAll() {
         return messageRepository.findAll();
     }

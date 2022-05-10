@@ -32,6 +32,22 @@ public class UserService {
         return user;
     }
 
+    public ApiUser createFollow(String username, FollowCreateRequest followCreateRequest) {
+        Optional<ApiUser> byUsername = userRepository.findByUsername(followCreateRequest.getFollowee_username());
+        if (byUsername.isEmpty()) {
+            throw new RuntimeException("User not found");
+        }
+        ApiUser followee = byUsername.get();
+        byUsername = userRepository.findByUsername(username);
+        if (byUsername.isEmpty()) {
+            throw new RuntimeException("User not found");
+        }
+        ApiUser follower = byUsername.get();
+        follower.getFollowings().add(followee);
+        userRepository.save(follower);
+        return follower;
+    }
+
     public List<ApiUser> getAll() {
         return userRepository.findAll();
     }
